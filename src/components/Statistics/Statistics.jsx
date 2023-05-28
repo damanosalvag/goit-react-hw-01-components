@@ -9,7 +9,7 @@ function colorRandom() {
 }
 
 
-export const Statistics = ({ stats, title }) => {
+export const Statistics = ({ title, stats }) => {
     return (<section className={styles['statistics']}>
         <h2 className={styles["title"]}>{title}</h2>
         <ul className={styles["stat-list"]}>
@@ -27,9 +27,9 @@ export const Statistics = ({ stats, title }) => {
 
 Statistics.propTypes = {
     title: PropTypes.string.isRequired,
-    stats: PropTypes.shape({
+    stats: PropTypes.arrayOf( PropTypes.shape({
         id: PropTypes.string.isRequired,
         label: PropTypes.string.isRequired,
         percentage: PropTypes.number.isRequired
-    }).isRequired
+    }).isRequired)
 };
